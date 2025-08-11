@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>VibePlayer v3 — Live Music</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-left">
+      <button id="logoBtn" class="logo" aria-label="Go to home">
+        <svg width="44" height="44" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect width="48" height="48" rx="10" fill="url(#g1)"/>
+          <defs><linearGradient id="g1" x1="0" x2="1"><stop offset="0" stop-color="#ff7a18"/><stop offset="1" stop-color="#af002d"/></linearGradient></defs>
+          <path d="M15 32c4-6 10-6 14-2 4 4 2 10-6 10-6 0-10-4-8-8z" fill="white" opacity="0.94"/>
+        </svg>
+      </button>
+      <h1 class="brand"><span class="brand-accent">Vibe</span>Player</h1>
+    </div>
+
+    <nav class="nav-tabs" role="tablist" aria-label="Main navigation">
+      <button class="nav-tab active" data-tab="home">Home</button>
+      <button class="nav-tab" data-tab="about">About Me</button>
+      <button class="nav-tab" data-tab="feedback">Feedback</button>
+    </nav>
+
+    <div class="header-right">
+      <label class="theme-toggle" title="Toggle theme">
+        <input id="themeToggle" type="checkbox" aria-label="Toggle dark mode" />
+        <span class="toggle-track"><span class="toggle-thumb"></span></span>
+      </label>
+    </div>
+  </header>
+
+  <main class="site-main">
+
+    <!-- Player -->
+    <section class="player-box" id="playerBox" aria-live="polite">
+      <div class="player-artwork">
+        <img id="artwork" src="placeholder.jpg" alt="Album artwork" />
+      </div>
+      <div class="player-meta">
+        <div class="meta-text">
+          <h2 id="trackTitle">No track selected</h2>
+          <p id="trackArtist">Search songs from JioSaavn &amp; iTunes</p>
+        </div>
+        <div class="player-controls">
+          <button id="prevBtn" class="control-btn" title="Previous">⟸</button>
+          <button id="playPauseBtn" class="control-btn primary" title="Play / Pause">Play</button>
+          <button id="nextBtn" class="control-btn" title="Next">⟹</button>
+        </div>
+        <audio id="audio" preload="metadata" controls style="display:none"></audio>
+      </div>
+    </section>
+
+    <!-- Home Section -->
+    <section id="home" class="page page-home active">
+      <div class="search-card">
+        <h3 class="section-title">Find songs — Hindi, Bengali, English</h3>
+        <div class="search-row">
+          <input id="searchInput" class="search-input" type="search" placeholder="Try: romantic, arijit singh, bengali love song..." autocomplete="off"/>
+          <div id="suggestions" class="suggestions" role="listbox" aria-label="Search suggestions"></div>
+        </div>
+        <div class="filters">
+          <label><input type="checkbox" id="sourceItunes" checked /> iTunes</label>
+          <label><input type="checkbox" id="sourceJio" checked /> JioSaavn</label>
+        </div>
+      </div>
+
+      <section class="results-section" id="resultsSection" aria-live="polite">
+        <ul id="resultsList" class="results-list"></ul>
+      </section>
+    </section>
+
+    <!-- About Page -->
+    <section id="about" class="page page-about">
+      <div class="card">
+        <h3>About Me</h3>
+        <p>VibePlayer v3 — live-updating music player. Streams full songs via JioSaavn when available. Auto-refreshes every 5 minutes for new tracks matching your last search.</p>
+      </div>
+    </section>
+
+    <!-- Feedback Page -->
+    <section id="feedback" class="page page-feedback">
+      <div class="card">
+        <h3>Feedback</h3>
+        <form id="feedbackForm">
+          <input id="fbName" type="text" placeholder="Your name" required/>
+          <textarea id="fbMessage" rows="5" placeholder="Your feedback..." required></textarea>
+          <button type="submit" class="btn-submit">Send Feedback</button>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <div id="toast" class="toast" aria-live="polite" aria-atomic="true" hidden>
+    <img id="toastArt" src="placeholder.jpg" alt="" />
+    <div class="toast-text"><strong id="toastTitle"></strong><small id="toastArtist"></small></div>
+  </div>
+
+  <footer class="site-footer"><small>© VibePlayer — Live</small></footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
