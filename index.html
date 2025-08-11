@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Responsive Music Player (iTunes + JioSaavn)</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="container">
+    <!-- Top player box -->
+    <section class="player-box" id="playerBox" aria-label="Music player">
+      <div class="artwork-wrap">
+        <img id="artwork" src="placeholder.jpg" alt="Album artwork" />
+      </div>
+      <div class="player-info">
+        <h1 id="trackTitle">Select a song</h1>
+        <p id="trackArtist">Songs from iTunes and JioSaavn</p>
+        <div class="controls">
+          <button id="prevBtn" class="btn">◀</button>
+          <button id="playPauseBtn" class="btn">Play</button>
+          <button id="nextBtn" class="btn">▶</button>
+        </div>
+        <audio id="audio" preload="none"></audio>
+      </div>
+    </section>
+
+    <!-- Search & tabs -->
+    <section class="search-area">
+      <div class="tabs" role="tablist" aria-label="Source tabs">
+        <button class="tab active" data-source="both">All</button>
+        <button class="tab" data-source="jiosaavn">Indian</button>
+        <button class="tab" data-source="itunes">International</button>
+      </div>
+
+      <div class="search-wrap">
+        <input id="searchInput" type="search" placeholder="Search songs, artists... (Hindi, Bengali, English)"
+               aria-label="Search songs" autocomplete="off" />
+        <div id="suggestions" class="suggestions" role="listbox" aria-label="Search suggestions"></div>
+      </div>
+    </section>
+
+    <!-- Results list (optional) -->
+    <section class="results-area" id="resultsArea" hidden>
+      <ul id="resultsList"></ul>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
